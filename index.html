@@ -28,20 +28,36 @@
       </div>
     )
   }
+  
+  const ColorDiv = () => {
+    const colors = ['#FFBAAA', '#27576B', '#D47F6A', '#AA7539', '#003D19', '#6E91A1', '#552D00']
+    let backgroundColor = ''
+    const colorSelectHandler = () => {
+      const color = colors[Math.floor(Math.random() * colors.length)]
+      backgroundColor = color
+      return
+    };
+    colorSelectHandler()
+    
+    return (
+      <div style={{background: backgroundColor, color: '#FFFFFF', height: '200px', width: '200px'}}>I am a div</div>
+    )
+  }
 
   const App = () => {
     const BartProfile = {
-    name: "Bartholomew Jo-Jo Simpson",
-    identity: "The troublemaker of the Simpson family.",
-    age: "10 (2 years and 38 days older than Lisa)",
-    family: ['Homer', 'Marge', 'Lisa', 'Maggie', 'Abe', 'Jacqueline', 'Patty', 'Selma', 'Herb'],
-    catchphrases: ['Aye Carumba!', 'Eat my shorts', "I didn't do it!"],  
-    best_friend: 'Milhouse Van Houten',
+      name: "Bartholomew Jo-Jo Simpson",
+      identity: "The troublemaker of the Simpson family.",
+      age: "10 (2 years and 38 days older than Lisa)",
+      family: ['Homer', 'Marge', 'Lisa', 'Maggie', 'Abe', 'Jacqueline', 'Patty', 'Selma', 'Herb'],
+      catchphrases: ['Aye Carumba!', 'Eat my shorts', "I didn't do it!"],  
+      best_friend: 'Milhouse Van Houten',
     }
 
     return (
       <div>
         <BartComponent bart={BartProfile} />
+        <ColorDiv />
       </div>
     )
   }
