@@ -29,18 +29,9 @@
     )
   }
   
-  const ColorDiv = () => {
-    const colors = ['#FFBAAA', '#27576B', '#D47F6A', '#AA7539', '#003D19', '#6E91A1', '#552D00']
-    let backgroundColor = ''
-    const colorSelectHandler = () => {
-      const color = colors[Math.floor(Math.random() * colors.length)]
-      backgroundColor = color
-      return
-    };
-    colorSelectHandler()
-    
+  const ColorDiv = (props) => {
     return (
-      <div style={{background: backgroundColor, color: '#FFFFFF', height: '200px', width: '200px'}}>I am a div</div>
+      <div style={{background: props.bgColor, color: '#FFFFFF', height: '200px', width: '200px'}}>I am a div</div>
     )
   }
 
@@ -54,10 +45,20 @@
       best_friend: 'Milhouse Van Houten',
     }
 
+    const colors = ['#FFBAAA', '#27576B', '#D47F6A', '#AA7539', '#003D19', '#6E91A1', '#552D00']
+    let backgroundColor = ''
+    const colorSelectHandler = () => {
+      const color = colors[Math.floor(Math.random() * colors.length)]
+      backgroundColor = color
+      console.log(backgroundColor)
+      return
+    };
+    colorSelectHandler()
+
     return (
       <div>
         <BartComponent bart={BartProfile} />
-        <ColorDiv />
+        <ColorDiv bgColor={backgroundColor}/>
       </div>
     )
   }
